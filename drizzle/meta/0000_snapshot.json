@@ -1,0 +1,344 @@
+{
+  "id": "dd84e132-1099-46a5-94a3-fda496aa4298",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.clothes_to_clothes_types": {
+      "name": "clothes_to_clothes_types",
+      "schema": "",
+      "columns": {
+        "clothes_id": {
+          "name": "clothes_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "clothes_type_id": {
+          "name": "clothes_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "clothes_to_clothes_types_clothes_id_clothes_id_fk": {
+          "name": "clothes_to_clothes_types_clothes_id_clothes_id_fk",
+          "tableFrom": "clothes_to_clothes_types",
+          "tableTo": "clothes",
+          "columnsFrom": [
+            "clothes_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "clothes_to_clothes_types_clothes_type_id_clothes_type_id_fk": {
+          "name": "clothes_to_clothes_types_clothes_type_id_clothes_type_id_fk",
+          "tableFrom": "clothes_to_clothes_types",
+          "tableTo": "clothes_type",
+          "columnsFrom": [
+            "clothes_type_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "clothes_to_clothes_types_clothes_id_clothes_type_id_pk": {
+          "name": "clothes_to_clothes_types_clothes_id_clothes_type_id_pk",
+          "columns": [
+            "clothes_id",
+            "clothes_type_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "public.clothes_to_color": {
+      "name": "clothes_to_color",
+      "schema": "",
+      "columns": {
+        "clothes_id": {
+          "name": "clothes_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "style_id": {
+          "name": "style_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "clothes_to_color_clothes_id_clothes_id_fk": {
+          "name": "clothes_to_color_clothes_id_clothes_id_fk",
+          "tableFrom": "clothes_to_color",
+          "tableTo": "clothes",
+          "columnsFrom": [
+            "clothes_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "clothes_to_color_style_id_style_id_fk": {
+          "name": "clothes_to_color_style_id_style_id_fk",
+          "tableFrom": "clothes_to_color",
+          "tableTo": "style",
+          "columnsFrom": [
+            "style_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "clothes_to_color_clothes_id_style_id_pk": {
+          "name": "clothes_to_color_clothes_id_style_id_pk",
+          "columns": [
+            "clothes_id",
+            "style_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "public.clothes_type": {
+      "name": "clothes_type",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "public.clothes": {
+      "name": "clothes",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "price_cents": {
+          "name": "price_cents",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "public.color": {
+      "name": "color",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "hex": {
+          "name": "hex",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "public.discount": {
+      "name": "discount",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "value": {
+          "name": "value",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "public.review": {
+      "name": "review",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "author": {
+          "name": "author",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "text": {
+          "name": "text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "value": {
+          "name": "value",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "clothes_id": {
+          "name": "clothes_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "review_clothes_id_clothes_id_fk": {
+          "name": "review_clothes_id_clothes_id_fk",
+          "tableFrom": "review",
+          "tableTo": "clothes",
+          "columnsFrom": [
+            "clothes_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "public.size": {
+      "name": "size",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "public.style": {
+      "name": "style",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
